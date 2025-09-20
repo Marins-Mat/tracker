@@ -48,7 +48,7 @@ function popularDados() {
     registros.push(new Registro('23/02/2024', 'FEIRA DE SANTANA', 'CHEGOU À UNIDADE'));
     registros.push(new Registro('24/02/2024', 'FEIRA DE SANTANA', 'SAIU DA UNIDADE'));
     registros.push(new Registro('25/02/2024', 'SALVADOR', 'CHEGOU AO DESTINO FINAL'));
-     
+
     let rastreio = new Rastreio("ABC123", registros);
     bd.inserirRastreios(rastreio);
 
@@ -77,14 +77,52 @@ function popularDados() {
     return bd;
 }
 
-function procurarNaBase(codigo){
+function escreveRegistros(registros) {
+    limpaRegistros();
+
+    for (let i = registros.length - 1; i >= 0; i--) {
+
+        console.log(registros.length);
+        let novaLinha = document.createElement("tr");
+
+        let dataRegistro = document.createElement("td");
+        dataRegistro.innerText = registros[i].data;
+        novaLinha.appendChild(dataRegistro);
+
+        let localRegistro = document.createElement("td");
+        localRegistro.innerText = registros[i].local;
+        novaLinha.appendChild(localRegistro);
+
+        let descricaoRegistro = document.createElement("td");
+        descricaoRegistro.innerHTML = registros[i].descricao;
+        novaLinha.appendChild(descricaoRegistro);
+
+        if (i % 2 === 0) {
+            novaLinha.classList.add("linha-clara");
+        } else {
+            novaLinha.classList.add("linha-escura");
+        }
+        novaLinha.classList.add("linha-adicionada");
+        document.getElementById("tabela").appendChild(novaLinha);
+    }
+
+}
+
+
+function limpaRegistros() {
+    
+    document.getElementById("tabela").innerHTML = " <tr> <th>DATA</th> <th>LOCAL</th> <th>DESCRIÇÃO</th> </tr>";
+
+}
+
+function procurarNaBase(codigo) {
     let rastreio = bd.procurarCodigo(codigo);
 
-    if (rastreio != null){
-        //escreveRegistros(rastreio.registros);
+    if (rastreio != null) {
+        escreveRegistros(rastreio.registros);
         document.getElementById("mensagemErro").style.visibility = "hidden";
     } else {
-        //limpaRegistros();
+        limpaRegistros();
         document.getElementById("mensagemErro").style.visibility = "visible";
     }
 }

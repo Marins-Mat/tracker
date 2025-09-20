@@ -14,29 +14,35 @@
         <h2>O melhor rastreio</h2>
     </header>
 
-    <div class="corpo">
-        <section class="rastreio">
-            <label for="codigo">Escreva o código do seu pacote: </label>
-            <div class="procuraRegistro">
-                <input type="text" id="codigo">
-                <button onclick="procurarClick()">PROCURAR</button>
-            </div>
+    <div class="container">
+        <div class="corpo">
+            <section class="rastreio">
+                <label for="codigo">Escreva o código do seu pacote: </label>
+                <div class="procuraRegistro">
+                    <input type="text" id="codigo">
+                    <button onclick="procurarClick()">PROCURAR</button>
+                </div>
 
-            <div id="mensagemErro">
-                <p>CÓDIGO NÃO ENCONTRADO. POR FAVOR, TENTE OUTRA VEZ.</p>
-            </div>
+                <div id="mensagemErro">
+                    <p>CÓDIGO NÃO ENCONTRADO. POR FAVOR, TENTE OUTRA VEZ.</p>
+                </div>
 
-        </section>
+            </section>
 
 
-        <section class="registros">
-            <table>
-                <th>DATA</th>
-                <th>LOCAL</th>
-                <th>DESCRIÇÃO</th>
-            </table>
-        </section>
+            <section class="registros">
+                <table id="tabela">
+                    <tr>
+                        <th>DATA</th>
+                        <th>LOCAL</th>
+                        <th>DESCRIÇÃO</th>
+                    </tr>
+
+                </table>
+            </section>
+        </div>
     </div>
+
 
     <script src="assets/script.js"></script>
 </body>
