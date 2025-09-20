@@ -1,11 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
     <title>Tracker</title>
 </head>
+
 <body>
-    
+    <header>
+        <h1>Rastreador</h1>
+        <h2>O melhor rastreio</h2>
+    </header>
+
+    <div class="corpo">
+        <section class="rastreio">
+            <label for="codigo">Escreva o código do seu pacote: </label>
+            <div class="procuraRegistro">
+                <input type="text" id="codigo">
+                <button onclick="procurarClick()">PROCURAR</button>
+            </div>
+
+            <div id="mensagemErro">
+                <p>CÓDIGO NÃO ENCONTRADO. POR FAVOR, TENTE OUTRA VEZ.</p>
+            </div>
+
+        </section>
+
+
+        <section class="registros">
+            <table>
+                <th>DATA</th>
+                <th>LOCAL</th>
+                <th>DESCRIÇÃO</th>
+            </table>
+        </section>
+    </div>
+
+    <script src="assets/script.js"></script>
 </body>
+
 </html>
